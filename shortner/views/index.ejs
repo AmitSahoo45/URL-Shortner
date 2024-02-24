@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css" />
+
+    <title>URL SHORTNER</title>
+  </head>
+  <body>
+    <h1>URL Shirnker</h1>
+
+    <% if (locals.error) { %>
+    <p class="error"><%= error %></p>
+    <% } %>
+    
+    <form action="/" method="post">
+      <input type="url" name="url" id="url" placeholder="URL"/>
+      
+      <input type="submit" value="Shrink This!"/>
+      
+    </form>
+    <div class="qr-code">
+      <% if (locals.qr_code) { %>
+      <img src="<%= qr_code %>" alt="QR Code">
+      <% } %>
+    </div>
+    <div class="short-url">
+      <% if (locals.short_url) { %>
+      <p>Short URL: <a href="<%= short_url %>" target="_blank"><%= short_url %></a></p>
+      <% } %>
+    </div>
+  </body>
+</html>
